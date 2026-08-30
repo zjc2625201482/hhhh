@@ -19,7 +19,7 @@ jobs:
         
     - name: Clone Theos
       run: |
-        git clone --depth 1 https://github.com/theos/theos.git ../theos
+        git clone --depth 1 --recurse-submodules https://github.com/theos/theos.git ../theos
         
     - name: Download iOS SDK
       run: |
