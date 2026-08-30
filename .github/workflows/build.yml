@@ -23,6 +23,7 @@ jobs:
         
     - name: Clone iOS SDK
       run: |
+        rm -rf ../theos/sdks
         git clone --depth 1 --branch master --single-branch https://github.com/theos/sdks.git ../theos/sdks
         
     - name: Build
