@@ -1,0 +1,9 @@
+Package: com.zjc.sthenoboundary
+Name: SthenoBoundary
+Depends: mobilesubstrate, firmware (>= 14.0)
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: 限制 Stheno 分屏窗口不能移出屏幕
+Maintainer: zjc
+Author: zjc
+Section: Tweaks
