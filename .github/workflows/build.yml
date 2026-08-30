@@ -1,0 +1,36 @@
+name: Build Theos Tweak
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+      
+    - name: Setup Theos
+      uses: NixTheos/theos-action@v1
+      with:
+        theos-version: 2.6-orion-2
+        orion: true
+        swift: false
+        sdk: iPhoneOS
+        
+    - name: Build arm64
+      run: |
+        make clean
+        make package FINALPACKAGE=1 ARCHS="arm64"
+        
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: stheno-boundary-arm64
+        path: packages/*.deb
+        if-no-files-found: error
