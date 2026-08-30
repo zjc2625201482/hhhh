@@ -26,6 +26,11 @@ jobs:
         rm -rf ../theos/sdks
         git clone --depth 1 --branch master --single-branch https://github.com/theos/sdks.git ../theos/sdks
         
+    - name: Install toolchain
+      run: |
+        cd ../theos
+        make install-tc
+        
     - name: Build
       run: |
         export THEOS=../theos
